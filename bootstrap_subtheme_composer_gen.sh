@@ -6,7 +6,7 @@ if [ $IS_THEME_FOLDER != 'y' ];then
   exit
 fi
 if ! [ -d bootstrap ];then
-  drush dl bootstrap
+  composer require drupal/bootstrap
 fi
 
 echo Enter your bootstrap subtheme name!
@@ -60,13 +60,15 @@ echo '{
   "main": "Gruntfile.js",
   "dependencies": {},
   "devDependencies": {
+    "bootstrap": "~3.3.7",
     "grunt": "~0.4.5",
-    "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-watch": "~0.6.1",
     "grunt-contrib-concat": "~1.0.1",
     "grunt-contrib-cssmin": "~1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "~2.0.0",
-    "bootstrap": "~3.3.7"
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-watch-change": "^0.1.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
