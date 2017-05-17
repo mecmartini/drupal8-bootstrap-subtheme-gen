@@ -160,10 +160,10 @@ sed -i -e "s/$td/$THEME_NAME/g" $THEME_NAME.info.yml
 
 npm install
 
-sed -i -e "s/bootstrap\/sass/\node_modules\/bootstrap\/sass/g" sass/bootstrap.scss
-sed -i -e "s/..\/bootstrap\/fonts/.\/..\/fonts/g" sass/variable-overrides.scss
-sed -i -e "s/..\/node_modules\/bootstrap\/sass\/variables.scss/variables.scss/g" sass/bootstrap.scss
-cp node_modules/bootstrap/sass/variables.scss sass/variables.scss
+sed -i -e "s/bootstrap\/sass/\node_modules\/bootstrap\/sass/g" scss/bootstrap.scss
+sed -i -e "s/..\/bootstrap\/fonts/.\/..\/fonts/g" scss/variable-overrides.scss
+sed -i -e "s/..\/node_modules\/bootstrap\/sass\/variables.scss/variables.scss/g" scss/bootstrap.scss
+cp node_modules/bootstrap/sass/variables.scss scss/variables.scss
 if ! [ -d assets ];then
   mkdir assets
 fi
