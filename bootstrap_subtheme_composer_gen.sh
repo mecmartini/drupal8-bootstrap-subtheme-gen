@@ -17,6 +17,18 @@
 # base directory
 BASE_DIR="$( cd "$( dirname "$0" )" && pwd )"
 
+# download required get-tag.awk file
+if [ -f "get-tag.awk" ]
+then
+  echo "'get-tag.awk' file found..."
+else
+  echo "Download required 'get-tag.awk' file..."
+  wget https://raw.githubusercontent.com/valeriopisapia/drupal8-bootstrap-subtheme-gen/master/get-tag.awk
+fi
+
+# make sure get-tag.awk get-tag.awk is executable
+chmod +x get-tag.awk
+
 # composer file
 COMPOSER_FILE='composer.json'
 if [ -f "$COMPOSER_FILE" ]
@@ -94,11 +106,11 @@ rm THEMENAME.libraries.yml
 echo 'global-styling:
   css:
     theme:
-      assets/css/all.min.css: {}
+      assets/css/all.css: {}
 
 bootstrap-scripts:
   js:
-    assets/js/all.min.js: {}
+    assets/js/all.js: {}
 ' > "${MACHINENAME}.libraries.yml"
 
 echo "Creating Npm config file 'package.json'..."
@@ -145,7 +157,7 @@ echo "module.exports = function(grunt) {
         }
       },
       sass: {
-        files: ['sass/*'],
+        files: ['scss/*'],
         tasks: ['sass']
       }
     },
@@ -218,6 +230,8 @@ do
   cp -R $UNPACK_DIR_NAME/assets/$DIR bootstrap/assets/
 done
 
+sed -r -i -e "s/'..\/bootstrap\/assets\/fonts\/bootstrap\/'/'..\/..\/bootstrap\/assets\/fonts\/bootstrap\/'/g" scss/_default-variables.scss
+
 # Removing temp files
 echo "Cleaning temp files..."
 rm -rf $UNPACK_DIR_NAME $TARGZ_NAME
@@ -229,10 +243,14 @@ grunt
 # Add Npm modules to .gitignore
 echo "Add Npm modules to .gitignore..."
 cd $BASE_DIR
-echo "
+
+if ! grep -q "/web/themes/custom/$MACHINENAME/node_modules" .gitignore
+then
+  echo "
 
 # Custom bootstrap sub-theme $HUMANNAME
 /web/themes/custom/$MACHINENAME/node_modules" >> .gitignore
+fi
 
 # THE END
 echo
