@@ -231,10 +231,14 @@ grunt
 # Add Npm modules to .gitignore
 echo "Add Npm modules to .gitignore..."
 cd $BASE_DIR
-echo "
+
+if [ ! grep -q "/web/themes/custom/$MACHINENAME/node_modules"" .gitignore ]
+then
+  echo "
 
 # Custom bootstrap sub-theme $HUMANNAME
 /web/themes/custom/$MACHINENAME/node_modules" >> .gitignore
+fi
 
 # THE END
 echo
