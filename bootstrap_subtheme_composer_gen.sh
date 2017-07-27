@@ -17,6 +17,18 @@
 # base directory
 BASE_DIR="$( cd "$( dirname "$0" )" && pwd )"
 
+# download required get-tag.awk file
+if [ -f "get-tag.awk" ]
+then
+  echo "'get-tag.awk' file found..."
+else
+  echo "Download required 'get-tag.awk' file..."
+  wget https://raw.githubusercontent.com/valeriopisapia/drupal8-bootstrap-subtheme-gen/master/get-tag.awk
+fi
+
+# make sure get-tag.awk get-tag.awk is executable
+chmod +x get-tag.awk
+
 # composer file
 COMPOSER_FILE='composer.json'
 if [ -f "$COMPOSER_FILE" ]
@@ -232,7 +244,7 @@ grunt
 echo "Add Npm modules to .gitignore..."
 cd $BASE_DIR
 
-if [ ! grep -q "/web/themes/custom/$MACHINENAME/node_modules"" .gitignore ]
+if ! grep -q "/web/themes/custom/$MACHINENAME/node_modules" .gitignore
 then
   echo "
 
