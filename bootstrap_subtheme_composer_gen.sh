@@ -94,11 +94,11 @@ rm THEMENAME.libraries.yml
 echo 'global-styling:
   css:
     theme:
-      assets/css/all.min.css: {}
+      assets/css/all.css: {}
 
 bootstrap-scripts:
   js:
-    assets/js/all.min.js: {}
+    assets/js/all.js: {}
 ' > "${MACHINENAME}.libraries.yml"
 
 echo "Creating Npm config file 'package.json'..."
