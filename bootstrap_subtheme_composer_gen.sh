@@ -145,7 +145,7 @@ echo "module.exports = function(grunt) {
         }
       },
       sass: {
-        files: ['sass/*'],
+        files: ['scss/*'],
         tasks: ['sass']
       }
     },
