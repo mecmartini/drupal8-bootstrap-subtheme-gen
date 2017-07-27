@@ -218,6 +218,8 @@ do
   cp -R $UNPACK_DIR_NAME/assets/$DIR bootstrap/assets/
 done
 
+sed -r -i -e "s/'..\/bootstrap\/assets\/fonts\/bootstrap\/'/'..\/..\/bootstrap\/assets\/fonts\/bootstrap\/'/g" scss/_default-variables.scss
+
 # Removing temp files
 echo "Cleaning temp files..."
 rm -rf $UNPACK_DIR_NAME $TARGZ_NAME
