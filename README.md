@@ -32,8 +32,7 @@ This script creates a new sub-theme for Bootstrap SASS theme on a Drupal 8.x com
 
 * 1 - Go to your Drupal installation folder.
 * 2 - Run `curl -O https://raw.githubusercontent.com/valeriopisapia/drupal8-bootstrap-subtheme-gen/master/bootstrap_subtheme_composer_gen.sh`
-* 3 - Run `curl -O https://raw.githubusercontent.com/valeriopisapia/drupal8-bootstrap-subtheme-gen/master/get-tag.awk`
-* 4 - Make sure scripts are executable. Run `chmod +x bootstrap_subtheme_drush_gen.sh get-tag.awk`
+* 4 - Make sure script is executable. Run `chmod +x bootstrap_subtheme_drush_gen.sh`
 * 5 - Run `./bootstrap_subtheme_composer_gen.sh`
 * 6 - Follow the instructions
 
