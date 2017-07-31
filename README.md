@@ -26,7 +26,7 @@ This script creates a new sub-theme for Bootstrap SASS theme on a Drupal 8.x com
 * Drupal 8.x composer based installation
 * Node.js
 * Npm
-* Grunt (npm install -g grunt-cli)
+* Grunt (`npm install -g grunt-cli`)
 
 #### Usage
 
