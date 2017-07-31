@@ -1,17 +1,18 @@
 #!/bin/bash
+#
 # This script creates a new sub-theme for Bootstrap SASS theme on a Drupal 8.x composer based installation.
 #
 # Requirements:
-# Drupal 8.x composer based installation
-# NodeJS
-# Npm
-# Grunt (npm install -g grunt-cli)
+#   Drupal 8.x composer based installation
+#   NodeJS
+#   Npm
+#   Grunt (npm install -g grunt-cli)
 #
 # Usage:
-# In your terminal: $ cd /your/drupal/root/directory
-# Make sure script is executable : $ chmod +x bootstrap_subtheme_composer_gen.sh
-# Run within directory: $ ./build-bootstrap-sass.sh
-# Follow the instructions
+#   In your terminal: $ cd /your/drupal/root/directory
+#   Make sure script is executable : $ chmod +x bootstrap_subtheme_composer_gen.sh
+#   Run within directory: $ ./build-bootstrap-sass.sh
+#   Follow the instructions
 #
 
 # base directory
