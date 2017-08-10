@@ -92,6 +92,7 @@ tt='THEMETITLE'
 td='Bootstrap Sub-Theme (SASS)'
 mv $tn.theme  $MACHINENAME.theme
 mv $tn.starterkit.yml $MACHINENAME.info.yml
+mv $tn.libraries.yml $MACHINENAME.libraries.yml
 
 mv config/install/THEMENAME.settings.yml config/install/$MACHINENAME.settings.yml
 mv config/schema/THEMENAME.schema.yml  config/schema/$MACHINENAME.schema.yml
@@ -102,17 +103,17 @@ sed -i -e "s/$td/$HUMANNAME Bootstrap Sub-Theme (SASS)/g" $MACHINENAME.info.yml
 sed -i -e "s/$tn/$MACHINENAME/g" config/schema/$MACHINENAME.schema.yml
 sed -i -e "s/$tt/$HUMANNAME/g" config/schema/$MACHINENAME.schema.yml
 
-rm THEMENAME.libraries.yml
+# rm THEMENAME.libraries.yml
 
-echo 'global-styling:
+echo "  - '${MACHINENAME}/global'" >> "$MACHINENAME.info.yml"
+
+echo "
+global:
   css:
-    theme:
+    base:
       assets/css/all.css: {}
-
-bootstrap-scripts:
   js:
-    assets/js/all.js: {}
-' > "${MACHINENAME}.libraries.yml"
+    assets/js/all.js: {}" >> "${MACHINENAME}.libraries.yml"
 
 echo "Creating Npm config file 'package.json'..."
 echo '{
