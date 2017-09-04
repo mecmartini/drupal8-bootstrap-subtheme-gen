@@ -57,6 +57,18 @@ done
 
 MACHINENAME=`echo $HUMANNAME | tr '[:upper:]' '[:lower:]' | sed -e 's/[ -]/_/g' -e 's/[^a-z0-9_]//g'`
 
+# Make sure the theme folder 'custom' exist otherwise create it
+if [ ! -d "$BASE_DIR/web/themes/custom" ]
+then
+    echo "Creating theme folder 'custom'..."
+    mkdir $BASE_DIR/web/themes/custom
+    if [ ! -d "$BASE_DIR/web/themes/custom" ]
+    then
+        echo "[Error] Can't create the theme folder 'custom'!" 1>&2
+        exit 1
+    fi
+fi
+
 if [ -d "$BASE_DIR/web/themes/custom/$MACHINENAME" ]
 then
 	echo -n "Sub-theme directory 'web/themes/custom/$MACHINENAME' already exists! Would you like to recreate it? [y/N]: "
