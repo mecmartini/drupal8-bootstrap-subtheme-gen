@@ -236,13 +236,17 @@ echo "Unpacking $TARGZ_NAME .."
 tar xzf $TARGZ_NAME
 
 # Coping necessary assets
-UNPACK_DIR_NAME=$(echo $BOOTSTRAP_SASS_LATEST_VERSION | sed 's/v/bootstrap-sass-/')
+UNPACK_DIR_NAME=$(find . -maxdepth 1 -type d -name 'bootstrap-sass*' -print -quit)
 echo "Coping $UNPACK_DIR_NAME/assets.."
 for DIR in `ls $UNPACK_DIR_NAME/assets`
 do
   echo " > Coping $UNPACK_DIR_NAME/assets/$DIR ..."
   cp -R $UNPACK_DIR_NAME/assets/$DIR bootstrap/assets/
 done
+
+# Create default style.css
+mkdir css
+touch css/style.css
 
 sed -r -i -e "s/'..\/bootstrap\/assets\/fonts\/bootstrap\/'/'..\/..\/bootstrap\/assets\/fonts\/bootstrap\/'/g" scss/_default-variables.scss
 
