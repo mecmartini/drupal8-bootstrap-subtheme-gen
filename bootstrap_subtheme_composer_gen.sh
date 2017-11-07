@@ -24,7 +24,7 @@ then
   echo "'get-tag.awk' file found..."
 else
   echo "Download required 'get-tag.awk' file..."
-  wget https://raw.githubusercontent.com/valeriopisapia/drupal8-bootstrap-subtheme-gen/master/get-tag.awk
+  wget https://raw.githubusercontent.com/mecmartini/drupal8-bootstrap-subtheme-gen/master/get-tag.awk
 fi
 
 # make sure get-tag.awk get-tag.awk is executable
@@ -122,7 +122,7 @@ echo "  - '${MACHINENAME}/global'" >> "$MACHINENAME.info.yml"
 echo "
 global:
   css:
-    base:
+    theme:
       assets/css/all.css: {}
   js:
     assets/js/all.js: {}" >> "${MACHINENAME}.libraries.yml"
