@@ -160,6 +160,15 @@ echo "module.exports = function(grunt) {
         files: {
           'assets/css/all.css': 'scss/style.scss'
         }
+      },
+      components: {
+        files: [{
+          expand: true,
+          cwd: 'components/',
+          src: ['**/*.scss'],
+          dest: 'components/',
+          ext: '.css'
+        }]
       }
     },
     // Watch settings
@@ -171,7 +180,7 @@ echo "module.exports = function(grunt) {
         }
       },
       sass: {
-        files: ['scss/*'],
+        files: ['scss/*.scss', 'scss/**/*.scss', 'components/**/*.scss'],
         tasks: ['sass']
       }
     },
@@ -217,7 +226,8 @@ mkdir -p \
   assets \
   assets/images \
   assets/js \
-  assets/sass
+  assets/sass \
+  components
 
 # Get latest bootstarp-sass official code
 echo "Getting latest 'bootstrap-sass' version..."
