@@ -1,4 +1,5 @@
 # Drupal 8 Bootstrap Subtheme generator
+### by [SoulWeb Solutions](https://soulweb.it)
 
 ## Composer generator
 This script creates a new sub-theme for Bootstrap SASS theme on a Drupal 8.x composer based installation.
